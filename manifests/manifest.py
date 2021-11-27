@@ -8,9 +8,9 @@ class Manifest:
         self.manifestfile = None
 
     def openmanifest(self, filepath):
-        self.file.setfilepath(filepath)
+        self.file.set_file_path(filepath)
         self.file.open()
-        contents = self.file.getcontents()
+        contents = self.file.get_contents()
         jsondictcontents = json.loads(contents)
         self.manifestfile = ManifestFile(**jsondictcontents)
         self.file.close()
