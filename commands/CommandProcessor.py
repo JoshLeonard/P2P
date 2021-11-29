@@ -1,18 +1,26 @@
+import os
+
+
 class CommandProcessor:
 
-    def process_command(self, command):
-        return None
+    def __init__(self, get_command, send_command):
+        self.get_command = get_command
+        self.send_command = send_command
+        self.currentCommand = 0
 
-    @staticmethod
-    def process_segment_command(command):
+    def process_segment_command(self, command):
         i = 1
-        next = command[i]
-        while next != '-f':
-            print(next)
+        segments = []
+        segment_id = command[i]
+        while segment_id != '-f':
+            segments.append(segment_id)
             i += 1
-            next = command[i]
+            segment_id = command[i]
+        return segments
 
-    @staticmethod
-    def process_file_command(command):
-        print(command[1])
+    def process_file_command(self, command):
+        file = command[1]
+        path = '/Users/Josh/PycharmProjects/pythonProject/shared/'
+        file_path = os.path.join(path, file)
+        return os.path.exists(file_path)
 

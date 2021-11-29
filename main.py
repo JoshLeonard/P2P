@@ -7,6 +7,8 @@ import sys
 from server import Server
 from file import File
 from manifests.manifest import Manifest
+from connectedpeer import ConnectedPeer
+from peerconnectionfactory import PeerConnectionFactory
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
@@ -16,7 +18,7 @@ if __name__ == '__main__':
         sharing = sys.argv[1]
 
     if sharing == '-h':
-        server = Server()
+        server = Server(PeerConnectionFactory())
         server.create_connection()
 
 

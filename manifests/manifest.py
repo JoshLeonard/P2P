@@ -14,5 +14,5 @@ class Manifest:
         jsondictcontents = json.loads(contents)
         self.manifestfile = ManifestFile(**jsondictcontents)
         self.file.close()
-        print('test')
+        print('tests')
 
