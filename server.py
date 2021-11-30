@@ -16,9 +16,9 @@ class Server:
         self.socket.bind(('', port))
         self.socket.listen(5)
 
-    def connection_loop(self, manifest_file = None):
+    def connection_loop(self):
         c, addr = self.socket.accept()
-        connected_peer = self.peer_connection_factory.create_peer_connection(c, manifest_file)
+        connected_peer = self.peer_connection_factory.create_peer_connection(c)
         th = threading.Thread(target=connected_peer.process(), args=(connected_peer, ))
         self.connected_peers.append((connected_peer, th))
         th.start()

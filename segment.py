@@ -18,3 +18,5 @@ class Segment:
         self.file.write(self.data)
         self.file.close()
 
+    def get_segment(self):
+        file = File('')

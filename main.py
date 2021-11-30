@@ -21,13 +21,8 @@ if __name__ == '__main__':
         server = Server(PeerConnectionFactory())
         server.create_connection()
 
-
-    f = File('/Users/Josh/downloads/manifest.json', 1024*1024)
-    manifest = Manifest(f)
-    manifest.openmanifest('/Users/Josh/downloads/manifest.json')
-
     if server is not None:
-        server.connection_loop(manifest.manifestfile)
+        server.connection_loop()
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/

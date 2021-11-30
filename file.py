@@ -4,10 +4,10 @@ import os
 
 class File:
 
-    def __init__(self, filepath = None, chunksize = 1024):
+    def __init__(self, filepath = None, segment_size = 1024):
         self.filepath = filepath
         self.file = None
-        self.chunksize = chunksize
+        self.segment_size = segment_size
         self.contents = None
 
     def set_file_path(self, filepath):
@@ -26,7 +26,7 @@ class File:
 
     def file_chunk_count(self):
         size = self.file.seek(0, os.SEEK_END)
-        return math.ceil(size / self.chunksize)
+        return math.ceil(size / self.segment_size)
 
     def close(self):
         self.file.close()
