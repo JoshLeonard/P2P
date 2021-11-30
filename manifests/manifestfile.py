@@ -5,4 +5,4 @@ class ManifestFile:
         self.size = size
         self.file_hash = file_hash
         self.filename = filename
-        self.ipaddresses = ipaddresses
+        self.ip_addresses = ipaddresses

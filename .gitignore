@@ -1,3 +1,4 @@
 .idea/
 __pycache__/
 shared/
+.DS_store
