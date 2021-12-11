@@ -1,17 +1,16 @@
 import random
 
 from commands.CommandProcessor import CommandProcessor
-from segment import Segment
-from segmentloader import SegmentLoader
 
 
 class ConnectedPeer:
+    command_processor_class = CommandProcessor
 
-    def __init__(self, connection, segment_loader):
+    def __init__(self, connection):
         self.connection = connection
         self.connected = True
         self.segments = None
-        self.command_processor = CommandProcessor(self.get_command, self.send_command)
+        self.command_processor = self.command_processor_class(self.get_command, self.send_command)
         self.segment_loader = segment_loader
         self.file_hash = None
 

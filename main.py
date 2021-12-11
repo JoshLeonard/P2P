@@ -10,13 +10,12 @@ from client import Client
 from server import Server
 from userinterface import UserInterface
 from services.fileservice import FileService
-from peerconnectionfactory import PeerConnectionFactory
 
 
 def run_server(args):
     if args == '-h':
         print('creating server')
-        server = Server(PeerConnectionFactory())
+        server = Server()
         server.create_connection()
 
     if server is not None:

@@ -1,13 +1,15 @@
 import socket
 import threading
+from peerconnectionfactory import PeerConnectionFactory
 
 
 class Server:
+    PeerConnectionFactoryClass = PeerConnectionFactory
 
-    def __init__(self, peer_connection_factory):
+    def __init__(self):
         self.connected_peers = []
         self.socket = None
-        self.peer_connection_factory = peer_connection_factory
+        self.peer_connection_factory = self.PeerConnectionFactoryClass()
 
     def create_connection(self):
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)

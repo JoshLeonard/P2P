@@ -2,10 +2,11 @@ from services.fileservice import FileService
 
 
 class UserInterface:
+    file_service_class = FileService
 
-    def __init__(self, file_service):
+    def __init__(self):
         self.options = (self.load_file_request, self.view_files, self.exit)
-        self.file_service = file_service
+        self.file_service = self.file_service_class()
 
     def run(self):
         self.print_options()
